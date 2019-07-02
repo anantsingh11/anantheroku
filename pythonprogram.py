@@ -1,17 +1,17 @@
 import socket
 
 s = socket.socket()
-s.bind(('127.0.0.1', 54321))
-s.listen(1)
-while true:
-  client, addr = s.accept()
-  while true:
-    content = client.recv(32)
-    if len(content) ==0:
-      break
-    else:
-      print(content)
-print("client disconnected\n")
-client.close()
+print("Socket successfully created")
+port = 11223
+s.bind(('', port))
+print("socket binded to %s" %port)
+s.listen(5)
+print("socket is listening")
+conn, addr = s.accept()
+with conn:
+    while True:
+        c, addr = s.accept()
+        print('Got connection from', addr)
+        c.close()
     
   
