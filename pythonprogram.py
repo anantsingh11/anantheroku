@@ -2,7 +2,7 @@ import socket
 import sys
 from _thread import *
 
-host = '0.0.0.0'
+host = 'anant.herokuapp.com'
 port = 11223
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
