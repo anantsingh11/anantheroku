@@ -2,7 +2,7 @@ import socket
 import sys
 from _thread import *
 
-host = ''
+host = '0.0.0.0'
 port = 11223
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
