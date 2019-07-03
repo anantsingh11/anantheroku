@@ -1,19 +1,32 @@
 import socket
+import sys
+from _thread import *
 
-s = socket.socket()
-print("Socket successfully created")
+host = ''
 port = 11223
-s.bind(('', port))
-print("socket binded to %s" %port)
-s.listen(5)
-print("socket is listening")
-conn, addr = s.accept()
-with conn:
-    while True:
-        c, addr = s.accept()
-        print('Got connection from', addr)
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
-    c.send('data= I am SERVER\n')
-c.close()
+try:
+    s.bind((host, port))
+except socket.error as e:
+    print(str(e))
+
+s.listen(5)
+print('Waiting for connection\n ')
+def threaded_client(conn):
+    conn.send(str.encode('WELCOME, Type your data\n'))
+
+    while True:
+        data = conn.recv(4096)
+        reply = 'server output: ' +data.decode('utf-8')
+        if not data:
+            break
+        conn.sendall(str.encode(reply))
+    conn.close()
+
+while True:
+    conn, addr = s.accept()
+    print('connected to: ' +addr[0]+':'+str(addr[1]))
+    start_new_thread(threaded_client(conn,))
     
   
