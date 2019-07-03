@@ -12,6 +12,8 @@ with conn:
     while True:
         c, addr = s.accept()
         print('Got connection from', addr)
-        c.close()
+
+    c.send('data= I am SERVER\n')
+c.close()
     
   
