@@ -1,7 +1,7 @@
 {
-  "name": " My simple socket server",
-  "description": "A simple socket server by beginner",
-  "repository": "https://github.com/anantsingh11/herokudeploy.git",
+  "name": " My simple web_socket server",
+  "description": "A web_socket server test",
+  "repository": "https://github.com/anantsingh11/websockets1.git",
   "logo": "https://s.yimg.com/pv/static/img/mms_sprite1x-1484962726812.min.png",
-  "keywords": ["python", "test", "Application"]
+  "keywords": ["python", "web_sockets", "Application"]
   }
