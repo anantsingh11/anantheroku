@@ -1,1 +1,1 @@
-web: python pythonprogram.py
+web: python ws_server.py
